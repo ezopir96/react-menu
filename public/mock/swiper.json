@@ -1,0 +1,21 @@
+{
+  "code": 0,
+  "msg": "ok",
+  "data": [
+    {
+      "id": 1,
+      "img": "http://img.1314000.cn/swiper-1.jpeg",
+      "title": "第1张图片"
+    },
+    {
+      "id": 2,
+      "img": "http://img.1314000.cn/swiper-2.jpeg",
+      "title": "第2张图片"
+    },
+    {
+      "id": 3,
+      "img": "http://img.1314000.cn/swiper-3.jpeg",
+      "title": "第3张图片"
+    }
+  ]
+}
