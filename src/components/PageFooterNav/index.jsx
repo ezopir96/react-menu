@@ -6,6 +6,10 @@ class PageFooterNav extends React.Component {
   constructor (props) {
     super(props)
     // 构造状态
+    this.state = {
+      selectedTab: 'feed',
+      hidden: false
+    }
   }
   render () {
     return (

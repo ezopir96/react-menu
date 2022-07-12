@@ -18,7 +18,7 @@ instance.interceptors.response.use(
 export const get = (url, config = {}) => instance.get(url, config)
 
 // 封装 post
-export const post = (utl, data ={}, config = {}) => {
+export const post = (url, data ={}, config = {}) => {
   if ({}.toString.call(data) === '[object Object]') {
     throw new Error('类型不合法')
   }
@@ -26,7 +26,7 @@ export const post = (utl, data ={}, config = {}) => {
 }
 
 export const post2 = (url, data, config) => {
-  return fetch({
+  return fetch(url, {
     method: 'POST',
     body: JSON.stringify(data),
     headers: {

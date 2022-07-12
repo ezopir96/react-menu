@@ -1,11 +1,15 @@
 import React from 'react'
-import { Route, NavLink } from 'react-router-dom'
+import TopNavBar from '@/components/TopNavBar'
+import Form from './ui/Form.jsx'
 class Search extends React.Component {
   render () {
     return (
-      <>
-        <div>Search</div>
-      </>
+      <div>
+        <TopNavBar leftText='返回' onLeft={() => this.props.history.goBack()}>
+          搜索
+        </TopNavBar>
+        <Form />
+      </div>
     )
   }
 }

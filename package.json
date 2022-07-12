@@ -9,6 +9,7 @@
     "animate.css": "^4.1.1",
     "antd-mobile": "^2.3.4",
     "axios": "^0.27.2",
+    "better-scroll": "^2.4.2",
     "immutable": "^4.1.0",
     "lodash": "^4.17.21",
     "prop-types": "^15.8.1",

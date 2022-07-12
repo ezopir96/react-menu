@@ -20,7 +20,12 @@ export const GoodFoodContainer = styled.div`
     padding-left: 0;
     font-size: 0.16rem;
   }
-  > div {
+  .wrapper {
+    height: 300px;
+    /* background: pink; */
+    overflow: hidden;
+  }
+  .content {
     display: flex;
     flex-wrap: wrap;
     > dl {
@@ -49,5 +54,11 @@ export const GoodFoodContainer = styled.div`
       }
     }
   }
+  .more {
+    width: calc(100% - 0.1rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 0.5rem;
+  }
 `
-

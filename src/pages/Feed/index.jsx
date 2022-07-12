@@ -2,8 +2,9 @@ import React, { Component } from 'react'
 
 import TopNavBar from '@/components/TopNavBar'
 import Swiper from '@/components/Swiper'
+import { Toast } from 'antd-mobile'
 
-import { getSwiperListApi, getHotCateListApi } from '@/services/feedService'
+import { getSwiperListApi } from '@/services/feedService'
 import SearchBtn from '@/components/SearchBtn'
 import HotCate from './ui/HotCate'
 
@@ -13,12 +14,26 @@ import GoodFood from './ui/GoodFood'
 @connect
 class Feed extends React.Component {
 
+  state = {
+    page: 1
+  }
+
   componentDidMount() {
+    console.log(this.props)
     Promise.all([
-      this.props.swiper.length === 0 && this.props.getSwiperListApi(),
+      this.props.swiper.length === 0 && getSwiperListApi(),
       this.props.hotcate.length === 0 && this.props.getHotCateListAction(),
       this.props.goodfood.length === 0 && this.props.getGoodFoodListAction(10)
     ]).catch(err => err)
+  }
+
+  getData = async () => {
+    let len = await this.props.getGoodFoodListAction(this.state.page, 10)
+    if (len > 0) {
+      this.setState(state => ({ page: state.page + 1 }))
+    } else {
+      Toast.info('没有更多了', 3)
+    }
   }
 
   render () {
@@ -40,7 +55,7 @@ class Feed extends React.Component {
         {/* 热门分类 */}
         <HotCate data={this.props.hotcate} />
         {/* 精品好菜 */}
-        <GoodFood data={this.props.goodfood} />
+        <GoodFood data={this.props.goodfood} getData={this.getData} />
       </div>
     )
   }

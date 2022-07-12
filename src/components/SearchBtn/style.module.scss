@@ -1,0 +1,23 @@
+.container {
+  // vw/vh 把屏幕分成100等分
+  width: 90vw;
+  height: .46rem;
+  display: flex;
+  border: 1px solid #ff6c0c;
+  margin: .15rem auto;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px #ccc;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    width: .2rem;
+    height: .2rem;
+  }
+
+  >div {
+    color: #555;
+    margin-left: .1rem;
+
+  }
+}
