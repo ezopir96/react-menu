@@ -15,8 +15,9 @@ export const getHotCateListAction = () => async dispatch => {
 
 const actionCreatorAddGoodFoodList = data => ({ type: 'setGoodFood', data })
 export const getGoodFoodListAction =
-  (limit = 2) =>
+  (page = 1, limit = 2) =>
   async dispatch => {
     const data = await (await getGoodFoodListApi(limit)).data
     dispatch(actionCreatorAddGoodFoodList(data))
+    return data.length
   }

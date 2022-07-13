@@ -10,6 +10,7 @@ import HotCate from './ui/HotCate'
 
 import connect from './connect'
 import GoodFood from './ui/GoodFood'
+import { getSwiperListAction } from '@/action/feedAction'
 
 @connect
 class Feed extends React.Component {
@@ -21,13 +22,23 @@ class Feed extends React.Component {
   componentDidMount() {
     console.log(this.props)
     Promise.all([
-      this.props.swiper.length === 0 && getSwiperListApi(),
+      this.props.swiper.length === 0 && getSwiperListAction(),
       this.props.hotcate.length === 0 && this.props.getHotCateListAction(),
-      this.props.goodfood.length === 0 && this.props.getGoodFoodListAction(10)
-    ]).catch(err => err)
+      this.props.goodfood.length === 0 && this.props.getGoodFoodListAction(this.state.page, 10)
+    ])
+      .then(() => {
+        // 使用回调函数方式 setState
+        this.setState(state => ({ page: state.page + 1 }),
+          () => {
+            console.log(this.state.page)
+          }
+        )
+      })
+      .catch(err => console.log('err'))
   }
 
   getData = async () => {
+    console.log(this.state.page)
     let len = await this.props.getGoodFoodListAction(this.state.page, 10)
     if (len > 0) {
       this.setState(state => ({ page: state.page + 1 }))

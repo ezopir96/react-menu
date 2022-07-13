@@ -8,6 +8,6 @@ export default {
     return state.set('hotcate', fromJS(data))
   },
   setGoodFood(state,data){
-    return state.set('goodfood', fromJS(data))
+    return state.update('goodfood', v => v.concat(fromJS(data)))
   }
 }

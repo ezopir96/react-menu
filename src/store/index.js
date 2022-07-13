@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware } from 'redux'
 import { combineReducers } from 'redux-immutable'
 import thunk from 'redux-thunk'
-import {composeWithDevTools } from '@redux-devtools/extension'
+import { composeWithDevTools } from '@redux-devtools/extension'
 
 // 参数1：检索的路径  相对路径
 // 参数2：是否递归检索

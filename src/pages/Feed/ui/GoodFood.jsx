@@ -23,16 +23,14 @@ class GoodFood extends Component {
     // 只有当有数据时, 才会重新计算
     if (this.props.data.length > 0) {
       setTimeout(() => {
-        console.log('setTimeout')
         this.bs.refresh()
         // 向上设置为复数
         this.bs.scrollBy(0, -100)
-      }, 100)
+      }, 1000)
     }
   }
 
   render() {
-    console.log(this.props.data)
     return (
       <GoodFoodContainer>
         <h1>精品好菜</h1>
