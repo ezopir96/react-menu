@@ -66,7 +66,7 @@ class Feed extends React.Component {
         {/* 热门分类 */}
         <HotCate data={this.props.hotcate} />
         {/* 精品好菜 */}
-        <GoodFood data={this.props.goodfood} getData={this.getData} />
+        <GoodFood data={this.props.goodfood} getData={this.getData} history={this.props.history} />
       </div>
     )
   }

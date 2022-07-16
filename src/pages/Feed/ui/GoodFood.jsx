@@ -3,10 +3,23 @@ import { GoodFoodContainer } from '../style'
 
 import BetterScroll from 'better-scroll'
 
+
 class GoodFood extends Component {
+
+  constructor (props) {
+    super(props)
+    this.handleDetail = this.handleDetail.bind(this)
+  }
 
   getData = () => {
     this.props.getData()
+  }
+
+  handleDetail (e) {
+    const id = e.target.getAttribute('id')
+    console.log(id)
+    console.log(this.props)
+    this.props.history.push(`/detail/${ id }`)
   }
 
   componentDidMount() {
@@ -40,10 +53,9 @@ class GoodFood extends Component {
               <dl key={index}>
                 <dt>
                   <img
+                  id={item.id}
                   src={item.img}
-                  onClick={() => {
-                    console.log('点击商品')
-                  }} />
+                  onClick={ this.handleDetail } />
                 </dt>
                 <dd>
                   <h3>{item.name}</h3>

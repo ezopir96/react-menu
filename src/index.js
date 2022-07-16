@@ -8,6 +8,9 @@ import store from './store'
 // 导入路由第三方
 import { BrowserRouter as Router } from 'react-router-dom'
 
+// 设置 redux 中的登录数据
+store.dispatch({ type: 'login' })
+
 ReactDom.render(
   <Provider store={store}>
     <Router>

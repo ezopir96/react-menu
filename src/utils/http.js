@@ -19,7 +19,7 @@ export const get = (url, config = {}) => instance.get(url, config)
 
 // 封装 post
 export const post = (url, data ={}, config = {}) => {
-  if ({}.toString.call(data) === '[object Object]') {
+  if ({}.toString.call(data) !== '[object Object]') {
     throw new Error('类型不合法')
   }
   return instance.post(url, data, config)

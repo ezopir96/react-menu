@@ -16,7 +16,7 @@ const modules = moduleFn.keys().reduce((prev, curr) => {
   return prev
 }, {})
 const reducer = combineReducers(modules)
-
+console.log(modules)
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)))
 
 export default store
