@@ -22,3 +22,8 @@ export const getGoodFoodListApi = async (limit = 2) => {
   let { data } = await get(config.goodfood)
   return { data: data.slice(0, limit) }
 }
+
+export const getGoodFoodDetailApi = async (id = '') => {
+  let { data } = await get(config.goodfood)
+  return { data: data.find(item => (item.id === id)) }
+}

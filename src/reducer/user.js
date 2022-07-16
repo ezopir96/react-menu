@@ -4,7 +4,8 @@ import mutation from '@/mutation/userMutation'
 const initState = fromJS({
   uid: 0,
   token: '',
-  url: '/'
+  url: '/',
+  likes_id: []
 })
 
 const reducer = (state = initState, { type, data }) => {
